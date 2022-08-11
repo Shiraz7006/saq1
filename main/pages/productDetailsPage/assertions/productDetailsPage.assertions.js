@@ -1,5 +1,5 @@
 import assertion from "soft-assert";
-import * as selectors from "../../../selectors/myAllSelectors.js";
+import * as selectors from "../selectors/productDetailsPage.selectors.js";
 
 export async function checkAssert(data) {
   let link = await $$(selectors.details);

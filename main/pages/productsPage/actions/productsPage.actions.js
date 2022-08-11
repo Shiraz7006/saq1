@@ -1,23 +1,9 @@
-import * as selectors from "../../../selectors/myAllSelectors.js";
+import * as selectors from "../selectors/productsPage.selectors.js";
 
 export async function clickingBook() {
   let link = await $(selectors.learningJavascriptBook);
   await link.scrollIntoView();
   await link.waitForDisplayed();
-  await link.click();
-}
-
-export async function clickingFormButton() {
-  let link = await $$(selectors.formButton);
-  await link[1].scrollIntoView();
-  await link[1].waitForExist();
-  await link[1].click();
-}
-
-export async function clickingPractiseFormButton() {
-  let link = await $(selectors.practiseFormButton);
-  await link.scrollIntoView();
-  await link.waitForExist();
   await link.click();
 }
 

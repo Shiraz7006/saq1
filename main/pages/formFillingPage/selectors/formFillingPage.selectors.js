@@ -1,10 +1,3 @@
-export const applicationLink = `div[class="card mt-4 top-card"]`;
-export const learningJavascriptBook = `a[href="/books?book=9781449331818"]`;
-export const details = `div[class*="col-md-9 col-sm-12"]`;
-export const practiseFormButton = `div[class="element-list collapse show"]`;
-export const formButton = `div[class="card mt-4 top-card"]`;
-export const searchButton = `span[id="basic-addon2"]`;
-export const searchField = `input[id="searchBox"]`;
 export const formFirstNameTextBox = `#firstName`;
 export const formLastNameTextBox = `#lastName`;
 export const formEmailTextBox = `#userEmail`;
