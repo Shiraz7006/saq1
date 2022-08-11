@@ -1,17 +1,15 @@
 import { Given, When, Then } from "cucumber";
-import { clickApplicationLink } from "../../../pages/HomePage/actions/clickApplicationLink.js";
-import { checkAssert } from "../../../pages/productDetailsPage/assertions/checkingDetails.js";
-import { formFilling } from "../../../pages/formFillingPage/actions/formFilling.js";
-import * as productsPage from "../../../pages/productsPage/actions/products.actions.js";
-
-
+import * as homePageActions from "../../main/pages/HomePage/actions/HomePage.actions.js";
+import { checkAssert } from "../../main/pages/productDetailsPage/assertions/productDetailsPage.assertions.js";
+import { formFilling } from "../../main/pages/formFillingPage/actions/formFillingPage.actions.js";
+import * as productsPage from "../../main/pages/productsPage/actions/productsPage.actions.js";
 
 Given("A web browser is at the given link", async () => {
   await browser.url("/");
 });
 
 When("the user clicks the book store application", async () => {
-  await clickApplicationLink();
+  await homePageActions.clickApplicationLink();
 });
 
 When("the user searches for book from the search bar", async () => {
@@ -22,9 +20,10 @@ When("the user clicks the book", async () => {
   await productsPage.clickingBook();
 });
 
-Then(/^the user verifies that correct book details are shown on the webpage$/,
+Then(
+  /^the user verifies that correct book details are shown on the webpage$/,
   async function (table) {
-    const data=table.rowsHash();
+    const data = table.rowsHash();
     await checkAssert(data);
   }
 );
@@ -34,11 +33,11 @@ Given("A web browser is at the given page", async () => {
 });
 
 When("the user clicks the forms button", async () => {
-  await productsPage.clickingFormButton();
+  await homePageActions.clickingFormButton();
 });
 
 When("the user selects practise form", async () => {
-  await productsPage.clickingPractiseFormButton();
+  await homePageActions.clickingPractiseFormButton();
 });
 
 When("the text data is filled by the user", async () => {
