@@ -1,6 +1,6 @@
 import * as actions from "../actions/formFillingPage.actions.js";
 
-export async function formFillingTask(inputData) {
+export async function fillPractiseForm(inputData) {
   await actions.fillFirstName(inputData.firstName);
   await actions.fillLastName(inputData.lastName);
   await actions.fillEmail(inputData.Email);

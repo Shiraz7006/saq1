@@ -2,7 +2,7 @@ import assertion from "soft-assert";
 import * as selectors from "../selectors/productDetailsPage.selectors.js";
 
 export async function checkAssert(data) {
-  let bookDetails = await $$(selectors.details);
+  let bookDetails = await $$(selectors.getDetails);
   console.log(data);
   console.log(data.Author);
   await bookDetails[0].waitForDisplayed();
