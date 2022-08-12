@@ -2,49 +2,59 @@ import assertion from "soft-assert";
 import * as selectors from "../selectors/productDetailsPage.selectors.js";
 
 export async function checkAssert(data) {
-  let link = await $$(selectors.details);
+  let bookDetails = await $$(selectors.details);
   console.log(data);
   console.log(data.Author);
-  await link[0].waitForDisplayed();
-  const ISBN_1 = await link[0].getText();
+  await bookDetails[0].waitForDisplayed();
+  const ISBN_displayed = await bookDetails[0].getText();
 
-  await link[1].waitForDisplayed();
-  const Title_1 = await link[1].getText();
+  await bookDetails[1].waitForDisplayed();
+  const Title_displayed = await bookDetails[1].getText();
 
-  await link[2].waitForDisplayed();
-  const sub_Title_1 = await link[2].getText();
+  await bookDetails[2].waitForDisplayed();
+  const sub_Title_displayed = await bookDetails[2].getText();
 
-  await link[3].waitForDisplayed();
-  const Author_1 = await link[3].getText();
+  await bookDetails[3].waitForDisplayed();
+  const Author_displayed = await bookDetails[3].getText();
 
-  await link[4].waitForDisplayed();
-  const Publisher_1 = await link[4].getText();
+  await bookDetails[4].waitForDisplayed();
+  const Publisher_displayed = await bookDetails[4].getText();
 
-  await link[5].waitForDisplayed();
-  const Total_Pages_1 = await link[5].getText();
+  await bookDetails[5].waitForDisplayed();
+  const Total_Pages_displayed = await bookDetails[5].getText();
 
-  assertion.softContains(ISBN_1, data.ISBN, "Wrong product is selected", []);
-  assertion.softContains(Title_1, data.Title, "Wrong product is selected", []);
   assertion.softContains(
-    sub_Title_1,
+    ISBN_displayed,
+    data.ISBN,
+    "Wrong product is selected",
+    []
+  );
+  assertion.softContains(
+    Title_displayed,
+    data.Title,
+    "Wrong product is selected",
+    []
+  );
+  assertion.softContains(
+    sub_Title_displayed,
     data.sub_Title,
     "Wrong product is selected",
     []
   );
   assertion.softContains(
-    Author_1,
+    Author_displayed,
     data.Author,
     "Wrong product is selected",
     []
   );
   assertion.softContains(
-    Publisher_1,
+    Publisher_displayed,
     data.Publisher,
     "Wrong product is selected",
     []
   );
   assertion.softContains(
-    Total_Pages_1,
+    Total_Pages_displayed,
     data.Total_Pages,
     "Wrong product is selected",
     []

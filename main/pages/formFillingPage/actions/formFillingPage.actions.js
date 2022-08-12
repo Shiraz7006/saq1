@@ -1,84 +1,81 @@
 import * as selectors from "../selectors/formFillingPage.selectors.js";
 const path = require("path");
 
-export async function formFilling() {
+export async function fillingFirstName(firstName) {
   let firstNameTextBox = await $(selectors.formFirstNameTextBox);
-  let lastNameTextBox = await $(selectors.formLastNameTextBox);
-  let emailTextBox = await $(selectors.formEmailTextBox);
-  let genderMaleButton = await $(selectors.formGenderButton1);
-  let genderFemaleButton = $(selectors.formGenderButton2);
-  let genderOtherButton = $(selectors.formGenderButton3);
-  let mobileNoTextBox = await $(selectors.formMobileNumberTextBox);
-  let DOBTextBox = await $(selectors.formDOBTextBox);
-  let subjectsTextBox = await $(selectors.formSubjectsTextBox);
-  let hobbiesOption = await $$(selectors.formHobbiesButtons);
-  let chooseFileOption = $(selectors.formChooseFile);
-  let currentAddressOption = await $(selectors.formCurrentAddress);
-  let stateCityOptions = await $$(selectors.formCityStateTextBox);
-
-  let firstName = "Ali";
-  let lastName = "ahmed";
-  let email = "ahmed111@gmail.com";
-  let gender = "Male";
-  let mobileNumber = "3331234564";
-  let DOB = "5 Sep 1999";
-  let Subjects = "Pysics Chemistry";
-  // let hobby= "Reading";
-  let currentAddress = "xyz sector Islamabad";
-  let city = "abc";
-  let state = "xyz";
-
   await firstNameTextBox.scrollIntoView();
   await firstNameTextBox.waitForDisplayed();
   await firstNameTextBox.addValue(firstName);
+}
 
+export async function fillingLastName(lastName) {
+  let lastNameTextBox = await $(selectors.formLastNameTextBox);
   await lastNameTextBox.scrollIntoView();
   await lastNameTextBox.waitForDisplayed();
   await lastNameTextBox.addValue(lastName);
+}
 
+export async function fillingEmail(email) {
+  let emailTextBox = await $(selectors.formEmailTextBox);
   await emailTextBox.scrollIntoView();
   await emailTextBox.waitForDisplayed();
   await emailTextBox.addValue(email);
+}
 
+export async function selectingGender(gender) {
+  let genderMaleButton = await $(selectors.formGenderButton1);
+  let genderFemaleButton = await $(selectors.formGenderButton2);
+  let genderOtherButton = await $(selectors.formGenderButton3);
   await genderMaleButton.scrollIntoView();
   await genderMaleButton.waitForDisplayed();
   await genderMaleButton.click();
+}
 
+export async function fillingMobileNo(mobileNumber) {
+  let mobileNoTextBox = await $(selectors.formMobileNumberTextBox);
   await mobileNoTextBox.scrollIntoView();
   await mobileNoTextBox.waitForDisplayed();
   await mobileNoTextBox.addValue(mobileNumber);
+}
 
+export async function choosingHobbies(hobby) {
+  let hobbiesOption = await $(selectors.formHobbiesButtons);
+  await hobbiesOption.scrollIntoView();
+  await hobbiesOption.waitForDisplayed();
+  await hobbiesOption.isSelected();
+}
+
+export async function fillingDOB(DOB) {
+  let DOBTextBox = await $(selectors.formDOBTextBox);
   await DOBTextBox.scrollIntoView();
   await DOBTextBox.waitForDisplayed();
+  await DOBTextBox.clearValue();
+  await DOBTextBox.waitForDisplayed();
   await DOBTextBox.addValue(DOB);
+}
 
-  await subjectsTextBox.scrollIntoView();
-  await subjectsTextBox.waitForDisplayed();
-  await subjectsTextBox.addValue(Subjects);
+// export async function FillingSubjects(Subjects) {
+//   let subjectsTextBox = await $(selectors.formSubjectsContainer);
+//   await subjectsTextBox.scrollIntoView();
+//   await subjectsTextBox.waitForDisplayed();
+//   await subjectsTextBox.click();
+//   await subjectsTextBox.setValue("ph");
+//   await subjectsTextBox.waitForDisplayed();
+//   await subjectsTextBox.selectByVisibleText(Subjects);
+// }
 
-  await hobbiesOption[0].scrollIntoView();
-  await hobbiesOption[0].waitForDisplayed();
-  await hobbiesOption[0].click();
-
-  await choosefileOption.click();
-  const filePath = await path.join(
-    __dirname,
-    "../../../tests/data/Cat+pic.jpg"
-  );
+export async function uploadingFile() {
+  let chooseFileOption = await $(selectors.formChooseFile);
+  const filePath = path.join(__dirname, "../../../../data/Cat+pic.jpg");
   const remoteFilePath = await browser.uploadFile(filePath);
   await chooseFileOption.scrollIntoView();
   await chooseFileOption.waitForExist();
   await chooseFileOption.setValue(remoteFilePath);
+}
 
+export async function fillingCurrentAddress(currentAddress) {
+  let currentAddressOption = await $(selectors.formCurrentAddress);
   await currentAddressOption.scrollIntoView();
   await currentAddressOption.waitForDisplayed();
   await currentAddressOption.addValue(currentAddress);
-
-  await stateCityOptions[0].scrollIntoView();
-  await stateCityOptions[0].waitForDisplayed();
-  await stateCityOptions[0].addValue(state);
-
-  await stateCityOptions[1].scrollIntoView();
-  await stateCityOptions[1].waitForDisplayed();
-  await stateCityOptions[1].addValue(city);
 }

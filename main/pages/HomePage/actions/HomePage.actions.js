@@ -1,22 +1,22 @@
-import * as selectors from "../selectors/HomePage.selectors.js.js";
+import * as selectors from "../selectors/HomePage.selectors.js";
 
 export async function clickApplicationLink() {
-  let link = await $$(selectors.applicationLink);
-  await link[5].scrollIntoView();
-  await link[5].waitForDisplayed();
-  await link[5].click();
+  let interfaceCards = await $$(selectors.applicationLink);
+  await interfaceCards[5].scrollIntoView();
+  await interfaceCards[5].waitForDisplayed();
+  await interfaceCards[5].click();
 }
 
 export async function clickingFormButton() {
-  let link = await $$(selectors.formButton);
-  await link[1].scrollIntoView();
-  await link[1].waitForExist();
-  await link[1].click();
+  let interfaceButtons = await $$(selectors.formButton);
+  await interfaceButtons[1].scrollIntoView();
+  await interfaceButtons[1].waitForExist();
+  await interfaceButtons[1].click();
 }
 
 export async function clickingPractiseFormButton() {
-  let link = await $(selectors.practiseFormButton);
-  await link.scrollIntoView();
-  await link.waitForExist();
-  await link.click();
+  let practiseFormButton = await $(selectors.practiseFormButton);
+  await practiseFormButton.scrollIntoView();
+  await practiseFormButton.waitForExist();
+  await practiseFormButton.click();
 }
