@@ -1,13 +1,13 @@
 import * as actions from "../actions/formFillingPage.actions.js";
 
-export async function task(inputData) {
-  await actions.fillingFirstName(inputData.firstName);
-  await actions.fillingLastName(inputData.lastName);
-  await actions.fillingEmail(inputData.Email);
-  await actions.selectingGender(inputData.Gender);
-  await actions.fillingMobileNo(inputData.MobileNo);
-  await actions.fillingDOB(inputData.DateofBirth);
-  await actions.choosingHobbies(inputData.Hobbies);
-  await actions.uploadingFile();
-  await actions.fillingCurrentAddress(inputData.CurrentAddress);
+export async function formFillingTask(inputData) {
+  await actions.fillFirstName(inputData.firstName);
+  await actions.fillLastName(inputData.lastName);
+  await actions.fillEmail(inputData.Email);
+  await actions.selectGender();
+  await actions.fillMobileNo(inputData.MobileNo);
+  await actions.fillDOB(inputData.DateofBirth);
+  await actions.chooseHobbies();
+  await actions.uploadFile();
+  await actions.fillCurrentAddress(inputData.CurrentAddress);
 }

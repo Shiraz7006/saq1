@@ -6,55 +6,55 @@ export async function checkAssert(data) {
   console.log(data);
   console.log(data.Author);
   await bookDetails[0].waitForDisplayed();
-  const ISBN_displayed = await bookDetails[0].getText();
+  const ISBNDisplayed = await bookDetails[0].getText();
 
   await bookDetails[1].waitForDisplayed();
-  const Title_displayed = await bookDetails[1].getText();
+  const titleDisplayed = await bookDetails[1].getText();
 
   await bookDetails[2].waitForDisplayed();
-  const sub_Title_displayed = await bookDetails[2].getText();
+  const subTitleDisplayed = await bookDetails[2].getText();
 
   await bookDetails[3].waitForDisplayed();
-  const Author_displayed = await bookDetails[3].getText();
+  const authorDisplayed = await bookDetails[3].getText();
 
   await bookDetails[4].waitForDisplayed();
-  const Publisher_displayed = await bookDetails[4].getText();
+  const publisherDisplayed = await bookDetails[4].getText();
 
   await bookDetails[5].waitForDisplayed();
-  const Total_Pages_displayed = await bookDetails[5].getText();
+  const totalPagesDisplayed = await bookDetails[5].getText();
 
   assertion.softContains(
-    ISBN_displayed,
+    ISBNDisplayed,
     data.ISBN,
     "Wrong product is selected",
     []
   );
   assertion.softContains(
-    Title_displayed,
+    titleDisplayed,
     data.Title,
     "Wrong product is selected",
     []
   );
   assertion.softContains(
-    sub_Title_displayed,
+    subTitleDisplayed,
     data.sub_Title,
     "Wrong product is selected",
     []
   );
   assertion.softContains(
-    Author_displayed,
+    authorDisplayed,
     data.Author,
     "Wrong product is selected",
     []
   );
   assertion.softContains(
-    Publisher_displayed,
+    publisherDisplayed,
     data.Publisher,
     "Wrong product is selected",
     []
   );
   assertion.softContains(
-    Total_Pages_displayed,
+    totalPagesDisplayed,
     data.Total_Pages,
     "Wrong product is selected",
     []

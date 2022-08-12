@@ -1,7 +1,7 @@
 import { Given, When, Then } from "cucumber";
 import * as homePageActions from "../../main/pages/HomePage/actions/HomePage.actions.js";
 import { checkAssert } from "../../main/pages/productDetailsPage/assertions/productDetailsPage.assertions.js";
-import { task } from "../../main/pages/formFillingPage/task/formFillingPage.task.js";
+import { formFillingTask } from "../../main/pages/formFillingPage/task/formFillingPage.task.js";
 import * as productsPage from "../../main/pages/productsPage/actions/productsPage.actions.js";
 
 Given("A web browser is at the given link", async () => {
@@ -42,5 +42,5 @@ When("the user selects practise form", async () => {
 
 When(/^the text data is filled by the user$/, async function (table) {
   const inputData = table.rowsHash();
-  await task(inputData);
+  await formFillingTask(inputData);
 });

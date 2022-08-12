@@ -9,8 +9,8 @@ export async function searchingBook() {
   await searchButton.click();
 }
 export async function clickingBook() {
-  let book_link = await $(selectors.learningJavascriptBook);
-  await book_link.scrollIntoView();
-  await book_link.waitForDisplayed();
-  await book_link.click();
+  let bookLink = await $(selectors.learningJavascriptBook);
+  await bookLink.scrollIntoView();
+  await bookLink.waitForDisplayed();
+  await bookLink.click();
 }
