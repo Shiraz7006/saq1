@@ -1,7 +1,7 @@
 import { Given, When, Then } from "cucumber";
 import * as homePageActions from "../../main/pages/HomePage/actions/HomePage.actions.js";
 import { checkAssert } from "../../main/pages/productDetailsPage/assertions/productDetailsPage.assertions.js";
-import { formFilling } from "../../main/pages/formFillingPage/actions/formFillingPage.actions.js";
+import { fillPractiseForm } from "../../main/pages/formFillingPage/task/formFillingPage.task.js";
 import * as productsPage from "../../main/pages/productsPage/actions/productsPage.actions.js";
 
 Given("A web browser is at the given link", async () => {
@@ -13,11 +13,11 @@ When("the user clicks the book store application", async () => {
 });
 
 When("the user searches for book from the search bar", async () => {
-  await productsPage.searchingBook();
+  await productsPage.searchBook();
 });
 
 When("the user clicks the book", async () => {
-  await productsPage.clickingBook();
+  await productsPage.clickBook();
 });
 
 Then(
@@ -33,13 +33,14 @@ Given("A web browser is at the given page", async () => {
 });
 
 When("the user clicks the forms button", async () => {
-  await homePageActions.clickingFormButton();
+  await homePageActions.clickFormButton();
 });
 
 When("the user selects practise form", async () => {
-  await homePageActions.clickingPractiseFormButton();
+  await homePageActions.clickPractiseFormButton();
 });
 
-When("the text data is filled by the user", async () => {
-  await formFilling();
+When(/^the text data is filled by the user$/, async function (table) {
+  const inputData = table.rowsHash();
+  await fillPractiseForm(inputData);
 });
